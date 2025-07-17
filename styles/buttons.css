@@ -1,0 +1,70 @@
+.btn {
+  --btn-bg-color: var(
+    --text-color-primary
+  ); /*cria essas variáveis no início para reutilizar depois no hover.*/
+  --btn-color: var(--bg-color);
+  border: 0;
+  background-color: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+
+  border-radius: 0.5rem;
+
+  font: var(--fw-md) var(--fs-base) / 1.5rem var(--ff-sans);
+
+  cursor: pointer;
+
+  background: var(--btn-bg-color);
+  color: var(--btn-color);
+}
+
+.btn:hover {
+  --btn-bg-color: linear-gradient(
+    90deg,
+    var(--brand-color-secondary) 0%,
+    var(--brand-color-primary) 100%
+  );
+  --btn-color: var(--surface-color);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: var(--fs-sm);
+}
+
+.btn-md {
+  padding: 0.75rem 1.5rem;
+  font-size: var(--fs-base);
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn[aria-label] {
+  /* aqui vai criar um elemento after dentro de >< e daí o attr do content vai pegar o atributo do arial-label que é o Label e colocar no after / o aria-label será lido por leitores de tela*/
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    inset: 1.5px; /*tamanho da borda que vai aparecer após aplicar o bg-color*/
+    background-color: var(--bg-color);
+  }
+
+  &::after {
+    content: attr(aria-label);
+    background: var(
+      --btn-bg-color
+    ); /*nesse caso será aplicado apenas na caixinha do texto*/
+    -webkit-background-clip: text;
+    background-clip: text; /*faz o recorte conforme o texto, ou seja, recorta para aparecer apenas o texto*/
+    color: transparent;
+    position: relative;
+    z-index: 1;
+  }
+}
