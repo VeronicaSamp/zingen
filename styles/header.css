@@ -1,0 +1,6 @@
+header {
+  & a:first-child {
+    /*primeiro a, colocando margin right auto vai preencher todo o espaço e posicionando os outros itens à direita*/
+    margin-right: auto;
+  }
+}
