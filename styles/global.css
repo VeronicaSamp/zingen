@@ -94,6 +94,11 @@ ul[role="list"] {
   list-style: none;
 }
 
+img {
+  max-width: 100%;
+  display: inline-block;
+}
+
 @media (width >= 80em) {
   /*80em = 1280(tela escolhida no responsively) dividido por 16px 
   essas medidas abaixo serão aplicadas quando a largura for igual ou maior do que 1280*/
